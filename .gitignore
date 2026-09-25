@@ -7,3 +7,6 @@ Thumbs.db
 data/
 # Python caches & virtual envs
 __pycache__/
+# Ignore all text files except requirements.txt
+*.txt
+!requirements.txt
