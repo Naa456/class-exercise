@@ -1,0 +1,74 @@
+import argparse
+import csv
+import sys
+from pathlib import Path
+
+def check_data(filename):
+    """Read the CSV file and check for missing values."""
+    with open(filename, "r") as f:
+        reader = csv.reader(f)
+        rows = list(reader)
+
+    header = rows[0]
+    data = rows[1:]
+    missing_rows = []
+
+    for row_number, row in enumerate(data, start=2):
+        if any(value == "" for value in row):
+            missing_rows.append(row_number)
+
+    return header, data, missing_rows
+
+
+# TODO 1: Create an ArgumentParser
+# Description: "Check the quality of a CSV file."
+parser=argparse.ArgumentParser(description="Check the quality of the CSV FILE")
+
+# TODO 2: Add a named argument (required):
+# Long form: --input
+# Short form: -i
+# Help: "CSV file to check
+parser.add_argument(
+    "-- input", "--i"
+    required=True,
+    help="CSV file to check"
+)
+
+
+# TODO 3: Add an named argument (optional):
+# Long form: --output
+# Short form: -o
+# Default: "data_quality.txt"
+# Help: "Output report filename"
+
+parser.add_argument(
+    "--output", "-o",
+    default="data_quality.txt",
+    help="Output report filename"
+)
+
+
+# TODO 4: Add a boolean flag:
+# Long form: --verbose
+# Short form: -v
+# Use action="store_true"
+# Help: "Show detailed DEBUG messages"
+
+
+
+
+#import lgging
+
+#logging is jsut a way to print out messages to the console or a file. It is more flexible than using print statements, and it allows you to control the level of detail that is printed out.
+
+
+HELLO TERE TODAY I AM JSUT DOIGN SOMEHTIGN MENAINGFUL WITH MY LIFE OF TYON
+
+
+
+```bash
+git status
+git add class2_data_checker.py
+git commit -m "Add logging to CSV data checker"
+git push
+```
